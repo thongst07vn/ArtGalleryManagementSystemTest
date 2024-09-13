@@ -12,7 +12,13 @@ import { Conect } from '../../conect';
   }
 })
 export class HomeComponent implements OnInit {
-  ngOnInit(): void {
+  constructor(
+    private conect : Conect
+  ){
 
+  }
+  ngOnInit(): void {
+    this.conect.reloadPage()
+    
   }
 }

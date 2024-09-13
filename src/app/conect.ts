@@ -1,5 +1,7 @@
 import {DOCUMENT} from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, OnDestroy } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Injectable(
     {
@@ -7,8 +9,18 @@ import { Inject, Injectable } from '@angular/core';
     }
 )
 
-export class Conect{
-    constructor(@Inject(DOCUMENT) private readonly document: Document) {
+export class Conect implements OnDestroy{
+    routerSubscription: Subscription
+    cureURL : string
+    constructor(
+        @Inject(DOCUMENT) private readonly document: Document,
+        private router: Router
+
+    ) {}
+    ngOnDestroy(): void {
+        if(this.routerSubscription){
+          this.routerSubscription.unsubscribe()
+        }
     }
     public addScript(scriptSrc: string) {
         const script = this.document.createElement('script');
@@ -17,12 +29,19 @@ export class Conect{
         script.defer = true;
         this.document.head.appendChild(script);
     }
+    public addScriptDefer(scriptSrc: string) {
+        const script = this.document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = scriptSrc;
+        script.defer = true;
+        this.document.body.appendChild(script);
+    }
     public addScriptAsync(scriptSrc: string) {
         const script = this.document.createElement('script');
         script.type = 'text/javascript';
         script.src = scriptSrc;
         script.async = true;
-        this.document.head.appendChild(script);
+        this.document.body.appendChild(script);
     }
     public addStyle(styleSrc: string) {
         const link = this.document.createElement('link');
@@ -30,5 +49,12 @@ export class Conect{
         link.href = styleSrc;
         link.type = 'text/css';
         this.document.head.appendChild(link);
+    }
+    public reloadPage(){
+        this.routerSubscription = this.router.events.subscribe(event => {
+            if(event instanceof NavigationEnd){
+                window.location.reload()
+            }
+        });
     }
 }

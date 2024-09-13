@@ -14,11 +14,16 @@ import { Conect } from '../../../conect';
 export class ProfileComponent implements OnInit {
   constructor(
     private conect : Conect
-  ){}
+  ){
+    // this.conect.reloadPage()
+  }
   ngOnInit(): void {
+    this.conect.reloadPage()
     this.conect.addStyle("src/assets/css/light/components/list-group.css")
     this.conect.addStyle("src/assets/css/light/users/user-profile.css")
     this.conect.addStyle("src/assets/css/dark/components/list-group.css")
     this.conect.addStyle("src/assets/css/dark/users/user-profile.css")
+    this.conect.reloadPage()
+
   }
 }

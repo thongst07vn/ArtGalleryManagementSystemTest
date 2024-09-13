@@ -16,6 +16,8 @@ export class ProfileEditComponent implements OnInit {
     private conect : Conect
   ){}
   ngOnInit(): void {
+    this.conect.reloadPage()
+
     this.conect.addStyle("src/plugins/src/filepond/filepond.min.css")
     this.conect.addStyle("src/plugins/src/filepond/FilePondPluginImagePreview.min.css")
     this.conect.addStyle("src/plugins/src/notification/snackbar/snackbar.min.css")
@@ -48,5 +50,7 @@ export class ProfileEditComponent implements OnInit {
     this.conect.addScriptAsync("src/plugins/src/notification/snackbar/snackbar.min.js")
     this.conect.addScriptAsync("src/plugins/src/sweetalerts2/sweetalerts2.min.js")
     this.conect.addScriptAsync("src/assets/js/users/account-settings.js")
+    this.conect.reloadPage()
+  
   }
 }
