@@ -28,10 +28,10 @@ export class LayoutsComponent implements OnInit {
         this.conect.addStyle("layouts/horizontal-light-menu/css/dark/plugins.css")
 
 
-        this.conect.addScriptAsync("src/bootstrap/js/bootstrap.bundle.min.js")
-        this.conect.addScriptAsync("src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js")
-        this.conect.addScriptAsync("src/plugins/src/mousetrap/mousetrap.min.js")
-        this.conect.addScriptAsync("src/plugins/src/waves/waves.min.js")
-        this.conect.addScriptAsync("layouts/horizontal-light-menu/app.js")
+        this.conect.addScript("src/bootstrap/js/bootstrap.bundle.min.js")
+        this.conect.addScript("src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js")
+        this.conect.addScript("src/plugins/src/mousetrap/mousetrap.min.js")
+        this.conect.addScript("src/plugins/src/waves/waves.min.js")
+        this.conect.addScript("layouts/horizontal-light-menu/app.js")
     }
 }
