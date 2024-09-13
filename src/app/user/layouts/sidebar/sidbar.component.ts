@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'sidbar',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,RouterLink],
   templateUrl: './sidbar.component.html',
   host:{
     'collision': 'SidbarComponent'

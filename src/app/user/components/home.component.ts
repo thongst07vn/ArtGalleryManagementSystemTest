@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { Conect } from '../../conect';
 
 @Component({
   standalone: true,
@@ -11,6 +12,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   }
 })
 export class HomeComponent implements OnInit {
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+
+  }
 }
