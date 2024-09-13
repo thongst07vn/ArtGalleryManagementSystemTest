@@ -17,6 +17,13 @@ export class Conect{
         script.defer = true;
         this.document.head.appendChild(script);
     }
+    public addScriptAsync(scriptSrc: string) {
+        const script = this.document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = scriptSrc;
+        script.async = true;
+        this.document.head.appendChild(script);
+    }
     public addStyle(styleSrc: string) {
         const link = this.document.createElement('link');
         link.rel = 'stylesheet';
