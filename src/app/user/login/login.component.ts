@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
 
     this.conect.addStyle("layouts/horizontal-light-menu/css/dark/plugins.css")
     this.conect.addStyle("src/assets/css/dark/authentication/auth-cover.css")
-    this.conect.addStyle("src/plugins/src/sweetalerts2/sweetalerts2.css")
-    this.conect.addScriptAsync("src/plugins/src/sweetalerts2/sweetalerts2.min.js")
+
   }
   login(){
     // console.log("hehe")
@@ -50,7 +49,8 @@ export class LoginComponent implements OnInit {
       window.location.href = '/user/home'
       // this.router.navigate(['/admin/dashboard'])
     }else{
-     
+      this.conect.addStyle("src/plugins/src/sweetalerts2/sweetalerts2.css")
+      this.conect.addScriptAsync("src/plugins/src/sweetalerts2/sweetalerts2.min.js")
       this.conect.addScriptAsync("layouts/horizontal-light-menu/alert.js")
     }
   }

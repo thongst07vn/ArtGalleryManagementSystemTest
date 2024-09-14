@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { Conect } from '../../conect';
+import { Conect } from '../../../conect';
 
 @Component({
   standalone: true,
@@ -18,6 +18,6 @@ export class HomeComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.conect.reloadPage()
+    // this.conect.reloadPage()
   }
 }

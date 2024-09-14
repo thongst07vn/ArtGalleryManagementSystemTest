@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Conect } from '../../conect';
+import { Conect } from '../../../conect';
 
 @Component({
   standalone: true,

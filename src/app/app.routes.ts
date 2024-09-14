@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './user/components/home.component';
+import { HomeComponent } from './user/components/product/home.component';
 import { ProfileComponent } from './user/components/profile/profile.component';
-import { ProductDetailsComponent } from './user/components/product-details.component';
+import { ProductDetailsComponent } from './user/components/product/product-details.component';
 import { ProfileEditComponent } from './user/components/profile/profile-edit.component';
 import { LayoutsComponent } from './user/layouts/layouts/layouts.component';
 import { LoginComponent } from './user/login/login.component';
@@ -43,4 +43,5 @@ export const routes: Routes = [
         path:'register',
         component:SignUpComponent
     }
+
 ];
