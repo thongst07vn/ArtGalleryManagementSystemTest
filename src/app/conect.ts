@@ -14,15 +14,16 @@ export class Conect{
         const script = this.document.createElement('script');
         script.type = 'text/javascript';
         script.src = scriptSrc;
-        script.defer = true;
+        // script.defer = true;
         this.document.head.appendChild(script);
+
     }
     public addScriptAsync(scriptSrc: string) {
         const script = this.document.createElement('script');
         script.type = 'text/javascript';
         script.src = scriptSrc;
-        script.async = true;
-        this.document.head.appendChild(script);
+        // script.async = true;
+        this.document.body.appendChild(script);
     }
     public addStyle(styleSrc: string) {
         const link = this.document.createElement('link');
@@ -31,4 +32,14 @@ export class Conect{
         link.type = 'text/css';
         this.document.head.appendChild(link);
     }
+
+    public removeScript(scriptSrc: string) {
+        const scripts = this.document.querySelectorAll('script[src="' + scriptSrc + '"]');
+        scripts.forEach(script => script.remove());
+      }
+    
+      public removeStyle(styleSrc: string) {
+        const styles = this.document.querySelectorAll('link[href="' + styleSrc + '"]');
+        styles.forEach(style => style.remove());
+      }
 }

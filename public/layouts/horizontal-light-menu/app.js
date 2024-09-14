@@ -197,12 +197,12 @@ var App = function() {
                     
                     var getUpdatedLocalObject = localStorage.getItem("theme");
                     var getUpdatedParseObject = JSON.parse(getUpdatedLocalObject);
-
+                    
                     if (!getUpdatedParseObject.settings.layout.darkMode) {
                         document.body.classList.remove('dark')
                         ifStarterKit = document.body.getAttribute('page') === 'starter-pack' ? true : false;
                         if (ifStarterKit) {
-                            document.querySelector('.navbar-logo').setAttribute('src', '../../src/assets/img/logo2.png')
+                            document.querySelector('.navbar-logo').setAttribute('src', '../../src/assets/img/logo2.svg')
                         } else {
                             document.querySelector('.navbar-logo').setAttribute('src', getUpdatedParseObject.settings.layout.logo.lightLogo)
                         }

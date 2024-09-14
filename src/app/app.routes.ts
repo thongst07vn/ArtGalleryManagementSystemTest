@@ -1,35 +1,23 @@
 import { Routes } from '@angular/router';
-import { LayoutsComponent } from './user/layouts/theme/layouts.component';
 import { HomeComponent } from './user/components/home.component';
 import { ProfileComponent } from './user/components/profile/profile.component';
 import { ProductDetailsComponent } from './user/components/product-details.component';
 import { ProfileEditComponent } from './user/components/profile/profile-edit.component';
+import { Component } from '@angular/core';
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
     {
+        path:'',
+        component:HomeComponent,
+        
+    },
+    {
         path:'home',
-        component:LayoutsComponent,
-        children:[
-            {
-                path:'',
-                component:HomeComponent
-            },
-            {
-                path:'profile',
-                component:ProfileComponent,
-                children:[
-                    
-                ]
-                
-            },
-            {
-                path:'edit-profile',
-                component: ProfileEditComponent
-            },
-            {
-                path:'product-details',
-                component:ProductDetailsComponent
-            }
-        ]
-    }
+        component:HomeComponent,
+    },
+    {
+        path:'product-details',
+        component:ProductDetailsComponent,
+    }   
 ];

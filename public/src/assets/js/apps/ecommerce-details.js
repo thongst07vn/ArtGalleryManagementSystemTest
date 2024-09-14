@@ -1,5 +1,6 @@
 // Touch Sping
 
+
 $("input[name='demo1']").TouchSpin({
     min: 0,
     max: 100,
@@ -61,4 +62,4 @@ document.querySelectorAll('.color-swatch input[name="flexRadioDefault"]').forEac
 
 // LightBox
 
-const lightbox = GLightbox();
+var lightbox = GLightbox();

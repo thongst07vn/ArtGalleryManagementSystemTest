@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Conect } from '../../conect';
 
 @Component({
@@ -12,7 +12,16 @@ import { Conect } from '../../conect';
   }
 })
 export class HomeComponent implements OnInit {
+  constructor(
+    private router :Router
+  ){
+
+  }
   ngOnInit(): void {
 
   }
+  // GotoProductDetails(){
+  //   this.router.navigate(['/product-details'])
+  //   window.location.href = 'product-details';
+  // }
 }
