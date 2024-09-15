@@ -1,21 +1,36 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { Conect } from '../../../conect';
 
 @Component({
   standalone: true,
   imports: [RouterOutlet,RouterLink],
+
   templateUrl: './calendar.component.html',
   host:{
     'collision': 'CalendarComponent'
   }
 })
 export class CalendarComponent {
+  // @Output() newVariableEvent = new EventEmitter<any>();
+  a:string
   constructor(
     private conect : Conect,
-  ){}
+
+    private activatedRoute :ActivatedRoute
+  ){
+    // this.newVariableEvent.emit('calendarA')
+  }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(
+      params => {
+        // console.log(params.get('calendarA'))
+      }
+    )
+
+    // console.log(this.a)
+
     this.conect.removeScript("src/plugins/src/global/vendors.min.js")
     this.conect.removeScript("src/assets/js/custom.js")
     this.conect.removeScript("src/plugins/src/table/datatable/datatables.js")
@@ -39,6 +54,5 @@ export class CalendarComponent {
     this.conect.addScript("src/plugins/src/uuid/uuid4.min.js")
     this.conect.addScript("src/plugins/src/fullcalendar/custom-fullcalendar.js")
     this.conect.reloadPage()
-    
-}
+  }
 }

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { Conect } from '../../../conect';
 import { AdminHeaderComponent } from '../header/admin-header.component';
 import { AdminSidbarComponent } from '../sidebar/admin-sidbar.component';
 import { AdminFooterComponent } from '../footer/admin-footer.component';
+
 
 
 
@@ -17,11 +18,17 @@ import { AdminFooterComponent } from '../footer/admin-footer.component';
   }
 })
 export class AdminComponent {
+  actives: string
   constructor(
     private conect : Conect,
+    private activatedRoute : ActivatedRoute,
   ){}
-
+  
   ngOnInit(): void {
+    
+    // this.calendarC.newVariableEvent.subscribe(s=>this.actives=s)
+    // this.actives = 'active'
+    // console.log(this.actives)
     this.conect.removeScript("src/plugins/src/global/vendors.min.js")
     this.conect.removeScript("src/assets/js/custom.js")
     this.conect.removeScript("src/plugins/src/table/datatable/datatables.js")
