@@ -5,11 +5,11 @@ import { RouterOutlet } from '@angular/router';
   selector: 'user-footer',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './user-footer.component.html',
+  templateUrl: './admin-footer.component.html',
   host:{
-    'collision': 'UserFooterComponent'
+    'collision': 'AdminFooterComponent'
   }
 })
-export class UserFooterComponent {
+export class AdminFooterComponent {
   
 }

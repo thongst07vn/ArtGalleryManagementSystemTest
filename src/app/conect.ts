@@ -1,6 +1,6 @@
 import {DOCUMENT} from '@angular/common';
-import { Inject, Injectable, OnDestroy } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Inject, Injectable } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Injectable(
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
     }
 )
 
-export class Conect implements OnDestroy{
+export class Conect{
     routerSubscription: Subscription
     cureURL : string
     constructor(
@@ -26,20 +26,6 @@ export class Conect implements OnDestroy{
         const script = this.document.createElement('script');
         script.type = 'text/javascript';
         script.src = scriptSrc;
-        script.defer = true;
-        this.document.head.appendChild(script);
-    }
-    public addScriptDefer(scriptSrc: string) {
-        const script = this.document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = scriptSrc;
-        // script.defer = true;
-        this.document.body.appendChild(script);
-    }
-    public addScriptAsync(scriptSrc: string) {
-        const script = this.document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = scriptSrc;
         // script.defer = true;
         this.document.body.appendChild(script);
     }
@@ -49,6 +35,20 @@ export class Conect implements OnDestroy{
         link.href = styleSrc;
         link.type = 'text/css';
         this.document.head.appendChild(link);
+    }
+    public addScriptDefer(scriptSrc: string) {
+        const script = this.document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = scriptSrc;
+        script.defer = true;
+        this.document.head.appendChild(script);
+    }
+    public addScriptAsync(scriptSrc: string) {
+        const script = this.document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = scriptSrc;
+        script.async = true;
+        this.document.head.appendChild(script);
     }
     public reloadPage(){
         this.routerSubscription = this.router.events.subscribe(event => {

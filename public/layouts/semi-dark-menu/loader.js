@@ -4,7 +4,7 @@ window.addEventListener("load", function(){
     var load_screen = document.getElementById("load_screen");
     document.body.removeChild(load_screen);
 
-    var layoutName = 'Horizontal Light Menu';
+    var layoutName = 'Semi Dark Menu';
 
     var settingsObject = {
         admin: 'Cork Admin Template',
@@ -13,10 +13,10 @@ window.addEventListener("load", function(){
                 name: layoutName,
                 toggle: true,
                 darkMode: false,
-                boxed: true,
+                boxed: false,
                 logo: {
                     darkLogo: '../src/assets/img/logo.svg',
-                    lightLogo: '../src/assets/img/logo2.svg'
+                    lightLogo: '../src/assets/img/logo.svg'
                 }
             }
         },

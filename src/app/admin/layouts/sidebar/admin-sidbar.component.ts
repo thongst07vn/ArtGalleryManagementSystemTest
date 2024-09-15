@@ -1,23 +1,16 @@
-
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Conect } from '../../../conect';
 
 @Component({
+  selector: 'admin-sidebar',
   standalone: true,
   imports: [RouterOutlet,RouterLink],
-  templateUrl: './home.component.html',
+  templateUrl: './admin-sidbar.component.html',
   host:{
-    'collision': 'HomeComponent'
+    'collision': 'AdminSidbarComponent'
   }
 })
-export class HomeComponent implements OnInit {
-  constructor(
-    private conect : Conect
-  ){
-
-  }
-  ngOnInit(): void {
-    // this.conect.reloadPage()
-  }
+export class AdminSidbarComponent{
+ 
 }

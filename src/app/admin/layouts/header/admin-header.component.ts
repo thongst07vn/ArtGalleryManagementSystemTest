@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'user-header',
+  selector: 'admin-header',
   standalone: true,
   imports: [RouterOutlet,RouterLink],
-  templateUrl: './user-header.component.html',
+  templateUrl: './admin-header.component.html',
   host:{
-    'collision': 'UserHeaderComponent'
+    'collision': 'AdminHeaderComponent'
   }
 })
-export class UserHeaderComponent {
+export class AdminHeaderComponent {
   
 }
