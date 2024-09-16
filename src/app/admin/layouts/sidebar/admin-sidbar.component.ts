@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
-import { Conect } from '../../../conect';
-import { CalendarComponent } from '../../components/calendar/calendar.component';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { ConectActive } from '../../services/conectActive';
+import { NgClass } from '@angular/common';
 
 
 @Component({
   selector: 'admin-sidebar',
   standalone: true,
-  imports: [RouterOutlet,RouterLink],
+  imports: [RouterOutlet,RouterLink,NgClass],
   templateUrl: './admin-sidbar.component.html',
   
   host:{
@@ -15,17 +15,39 @@ import { CalendarComponent } from '../../components/calendar/calendar.component'
   }
 })
 export class AdminSidbarComponent implements OnInit{
-  
-  @Output() addActive = new EventEmitter<any>();
-  actives:string
-  
+  activeClasses = {
+    calendar: '',
+    buyer: '',
+    seller: '',
+    manageUser: '',
+    auction:'',
+    dashboard: '',
+    auctionCreate:''
+  };
+  ariaUser:boolean
+  ariaAuction:boolean
+
+  showUser:string
+  showAuction:string
   constructor(
-    private activatedRoute : ActivatedRoute
+    private conectActive:ConectActive
   ) {}
   ngOnInit() {
-    this.actives = ''
-  }
-  addActvies(){
-    this.addActive.emit(this.actives)
+    this.conectActive.data$.subscribe((data) => {
+      if (data) {
+        if(data == 'buyer' || data=='seller'){
+          this.activeClasses.manageUser = 'active'
+          this.ariaUser= true
+          this.showUser = 'show'
+        }
+        if(data == 'auctionCreate'){
+          this.activeClasses.auction = 'active'
+          this.ariaAuction= true
+          this.showAuction = 'show'
+        }
+        this.activeClasses = { ...this.activeClasses, [data]: 'active' };
+
+      }
+    });
   }
 }

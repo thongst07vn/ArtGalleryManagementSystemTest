@@ -19,7 +19,7 @@
     </div>
     <div class="shadow-bottom"></div>
     <ul class="list-unstyled menu-categories" id="accordionExample">
-        <li class="menu ">
+        <li class="menu {{activeClasses.dashboard}}">
             <a [routerLink]="['dashboard']" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <div class="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -43,7 +43,7 @@
             <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>APPLICATIONS</span></div>
         </li>
 
-        <li class='menu active'>
+        <li class='menu {{activeClasses.calendar}}'>
             <a [routerLink]="['calendar']" aria-expanded="false" class="dropdown-toggle">
                 <div class="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -386,8 +386,8 @@
                 </div>
             </a>
         </li> -->
-        <li class="menu">
-            <a href="#datatables" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+        <li class="menu {{activeClasses.manageUser}}">
+            <a href="#datatables" data-bs-toggle="collapse" [attr.aria-expanded]="this.ariaUser" class="dropdown-toggle">
                 <div class="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                     <span>Manage User</span>
@@ -396,7 +396,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </div>
             </a>
-            <ul class="collapse submenu list-unstyled" id="datatables" data-bs-parent="#accordionExample">
+            <ul class="collapse submenu list-unstyled {{showUser}}" id="datatables" data-bs-parent="#accordionExample">
                 <!-- <li>
                     <a href="./table-datatable-basic.html"> Basic </a>
                 </li> -->
@@ -406,15 +406,42 @@
                 <!-- <li>
                     <a href="./table-datatable-custom.html"> Custom </a>
                 </li> -->
-                <li  class="">
+                <li  class="{{activeClasses.buyer}}">
                     <a [routerLink]="['user-list']">Buyer List</a>
                 </li>
-                <li>
-                    <a [routerLink]="['user-list']">Seller List</a>
+                <li class="{{activeClasses.seller}}">
+                    <a [routerLink]="['seller-list']">Seller List</a>
                 </li>
             </ul>
         </li>
-
+        <li class="menu {{activeClasses.auction}}">
+            <a href="#auction" data-bs-toggle="collapse" [attr.aria-expanded]="this.ariaAuction" class="dropdown-toggle">
+                <div class="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                    <span>Auction</span>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+            </a>
+            <ul class="collapse submenu list-unstyled {{showAuction}}" id="auction" data-bs-parent="#accordionExample">
+                <!-- <li>
+                    <a href="./table-datatable-basic.html"> Basic </a>
+                </li> -->
+                <!-- <li>
+                    <a href="./table-datatable-striped-table.html"> Striped </a>
+                </li> -->
+                <!-- <li>
+                    <a href="./table-datatable-custom.html"> Custom </a>
+                </li> -->
+                <li  class="{{activeClasses.auctionCreate}}">
+                    <a [routerLink]="['auction-create']">Create</a>
+                </li>
+                <!-- <li class="{{activeClasses.seller}}">
+                    <a [routerLink]="['seller-list']">Seller List</a>
+                </li> -->
+            </ul>
+        </li>
         <!-- <li class="menu">
             <a href="#forms" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <div class="">

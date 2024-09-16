@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { Conect } from '../../../conect';
+import { ConectActive } from '../../services/conectActive';
 
 @Component({
   standalone: true,
@@ -13,9 +14,16 @@ import { Conect } from '../../../conect';
 export class DashBoardComponent {
   constructor(
     private conect : Conect,
+    private activatedRoute :ActivatedRoute,
+    private conectActive : ConectActive
   ){}
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe(
+      params => {
+        this.conectActive.setData(params['addActive'])
+      }
+    )
     this.conect.removeScript("src/plugins/src/global/vendors.min.js")
     this.conect.removeScript("src/assets/js/custom.js")
     this.conect.removeScript("src/plugins/src/table/datatable/datatables.js")
@@ -24,6 +32,16 @@ export class DashBoardComponent {
     this.conect.removeScript("src/plugins/src/fullcalendar/custom-fullcalendar.js")
     this.conect.removeScript("src/plugins/src/apex/apexcharts.min.js")
     this.conect.removeScript("src/assets/js/dashboard/dash_1.js")
+    this.conect.removeStyle("src/plugins/src/editors/quill/quill.js")
+    this.conect.removeScript("src/assets/js/apps/ecommerce-create.js")
+    this.conect.removeScript("src/plugins/src/filepond/filepond.min.js")
+    this.conect.removeScript("src/plugins/src/filepond/FilePondPluginImagePreview.min.js")
+    this.conect.removeScript("src/plugins/src/filepond/FilePondPluginImageExifOrientation.min.js")
+    this.conect.removeScript("src/plugins/src/filepond/FilePondPluginImageCrop.min.js")
+    this.conect.removeScript("src/plugins/src/filepond/FilePondPluginImageResize.min.js")
+    this.conect.removeScript("src/plugins/src/filepond/FilePondPluginImageTransform.min.js")
+    this.conect.removeScript("src/plugins/src/filepond/filepondPluginFileValidateSize.min.js")
+    this.conect.removeScript("src/plugins/src/tagify/tagify.min.js")
 
     // this.conect.removeScript("src/plugins/src/glightbox/glightbox.min.js")
     // this.conect.removeScript("src/plugins/src/global/vendors.min.js")
@@ -48,10 +66,11 @@ export class DashBoardComponent {
     // this.conect.addScriptDefer("src/plugins/src/mousetrap/mousetrap.min.js")
     // this.conect.addScriptDefer("src/plugins/src/waves/waves.min.js")
     // this.conect.addScript("layouts/semi-dark-menu/app.js")
+
     
     this.conect.addScript("src/plugins/src/apex/apexcharts.min.js")
     this.conect.addScript("src/assets/js/dashboard/dash_1.js")
-    this.conect.reloadPage()
+    // this.conect.reloadPage()
 
 }
 }

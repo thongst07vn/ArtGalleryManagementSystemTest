@@ -6,12 +6,12 @@ import { ConectActive } from '../../services/conectActive';
 @Component({
   standalone: true,
   imports: [RouterOutlet,RouterLink],
-  templateUrl: './user-list.component.html',
+  templateUrl: './seller-list.component.html',
   host:{
-    'collision': 'UserListComponent'
+    'collision': 'SellerListComponent'
   }
 })
-export class UserListComponent {
+export class SellerListComponent {
   constructor(
     private conect : Conect,
     private activatedRoute :ActivatedRoute,
@@ -42,6 +42,8 @@ export class UserListComponent {
     this.conect.removeScript("src/plugins/src/filepond/FilePondPluginImageTransform.min.js")
     this.conect.removeScript("src/plugins/src/filepond/filepondPluginFileValidateSize.min.js")
     this.conect.removeScript("src/plugins/src/tagify/tagify.min.js")
+
+
     // this.conect.removeScript("src/plugins/src/glightbox/glightbox.min.js")
     // this.conect.removeScript("src/plugins/src/global/vendors.min.js")
     // this.conect.removeScript("src/plugins/src/splide/splide.min.js")
@@ -59,8 +61,7 @@ export class UserListComponent {
     this.conect.addStyle("src/plugins/css/light/table/datatable/custom_dt_miscellaneous.css")
     this.conect.addStyle("src/plugins/css/dark/table/datatable/dt-global_style.css")
     this.conect.addStyle("src/plugins/css/dark/table/datatable/custom_dt_miscellaneous.css")
-
-
+    
     // this.conect.addScript("https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js")
     // this.conect.addScriptDefer("src/bootstrap/js/bootstrap.bundle.min.js")
     // this.conect.addScriptDefer("src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js")

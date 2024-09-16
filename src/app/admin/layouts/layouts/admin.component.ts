@@ -18,7 +18,6 @@ import { AdminFooterComponent } from '../footer/admin-footer.component';
   }
 })
 export class AdminComponent {
-  actives: string
   constructor(
     private conect : Conect,
     private activatedRoute : ActivatedRoute,
@@ -49,9 +48,10 @@ export class AdminComponent {
     // this.conect.addScript("src/bootstrap/js/bootstrap.bundle.min.js")
     // this.conect.addScript("src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js")
     // this.conect.addScript("src/plugins/src/mousetrap/mousetrap.min.js")
+    // this.conect.addScript("layouts/semi-dark-menu/addActives.js")
     // this.conect.addScript("src/plugins/src/waves/waves.min.js")
     this.conect.addScript("layouts/semi-dark-menu/app.js")
-
+    this.conect.reloadPage()
 
     // this.conect.addScript("src/plugins/src/apex/apexcharts.min.js")
     // this.conect.addScript("src/assets/js/dashboard/dash_1.js")
