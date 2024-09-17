@@ -21,6 +21,21 @@ export class ProfileEditComponent implements OnInit {
     this.conect.removeScript("src/plugins/src/splide/splide.min.js")
     this.conect.removeScript("src/plugins/src/filepond/filepond.min.js")
     this.conect.removeScript("src/plugins/src/filepond/FilePondPluginImageTransform.min.js")
+    this.conect.removeScript("src/plugins/src/leaflet/leaflet.js")
+    this.conect.removeScript("src/assets/js/apps/invoice-list.js")
+    this.conect.removeScript("src/plugins/src/table/datatable/datatables.js")
+    this.conect.removeScript("src/plugins/src/table/datatable/button-ext/dataTables.buttons.min.js")
+    this.conect.removeScript("src/assets/js/custom.js")
+
+    this.conect.addStyle("src/assets/css/light/scrollspyNav.css");
+    this.conect.addStyle("src/assets/css/light/components/carousel.css");
+    this.conect.addStyle("src/assets/css/light/components/modal.css");
+
+    this.conect.addStyle("src/assets/css/dark/scrollspyNav.css");
+    this.conect.addStyle("src/assets/css/dark/components/carousel.css");
+    this.conect.addStyle("src/assets/css/dark/components/modal.css");
+
+
 
 
     this.conect.addStyle("src/plugins/src/filepond/filepond.min.css")
@@ -56,6 +71,6 @@ export class ProfileEditComponent implements OnInit {
     this.conect.addScriptAsync("src/plugins/src/sweetalerts2/sweetalerts2.min.js")
     this.conect.addScriptAsync("src/assets/js/users/account-settings.js")
 
-    this.conect.reloadPage()
+    // this.conect.reloadPage()
   }
 }

@@ -6,6 +6,8 @@ import { ProfileEditComponent } from './user/components/profile/profile-edit.com
 import { LayoutsComponent } from './user/layouts/layouts/layouts.component';
 import { LoginComponent } from './user/login/login.component';
 import { SignUpComponent } from './user/login/signup.component';
+import { ContactUsComponent } from './user/components/contactUs.component';
+import { AddtoCardComponent } from './user/components/product/addtocard.component';
 
 
 export const routes: Routes = [
@@ -28,6 +30,14 @@ export const routes: Routes = [
             {
                 path:'product-details',
                 component:ProductDetailsComponent,
+            },
+            {
+                path:'contact-us',
+                component:ContactUsComponent,
+            },
+            {
+                path:'add-to-cart',
+                component:AddtoCardComponent
             }
         ]
     },

@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
     this.conect.addStyle("src/assets/css/dark/components/list-group.css")
     this.conect.addStyle("src/assets/css/dark/users/user-profile.css")
 
-    this.conect.reloadPage()
+    // this.conect.reloadPage()
 
   }
 }
