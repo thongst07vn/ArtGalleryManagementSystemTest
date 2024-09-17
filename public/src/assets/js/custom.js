@@ -17,6 +17,7 @@ function checkall(clickchk, relChkbox) {
     });
 }
 
+checkall('checkbox_parent_all', 'checkbox_child');
 
 /*
 =========================================

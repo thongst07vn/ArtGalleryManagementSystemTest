@@ -5,10 +5,11 @@ import { CalendarComponent} from './admin/components/calendar/calendar.component
 import { UserListComponent } from './admin/components/user-list/user-list.component';
 import { SellerListComponent } from './admin/components/user-list/seller-list.component';
 import { AuctionCreateComponent } from './admin/components/auction/auction-create.component';
+import { LoginComponent } from './admin/login/login.component';
 
 export const routes: Routes = [
     {
-        path: '',
+        path: 'admin',
         component:AdminComponent,
         children: [
             {
@@ -54,5 +55,13 @@ export const routes: Routes = [
                 }
             }
         ]
+    },
+    {
+        path: '',
+        component:LoginComponent
+    },
+    {
+        path: 'login',
+        component:LoginComponent
     }
 ];
